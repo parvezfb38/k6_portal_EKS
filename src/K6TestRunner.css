@@ -1,0 +1,529 @@
+/* Main container */
+.k6-test-runner {
+  padding: 24px;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.k6-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.k6-header h2 {
+  color: #333;
+  margin: 0;
+}
+
+.manage-scripts-btn {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+/* Existing scripts section */
+.existing-scripts {
+  margin-bottom: 24px;
+}
+
+.existing-scripts h4 {
+  margin-bottom: 12px;
+}
+
+.scripts-list {
+  max-height: 250px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.environment-group {
+  margin-bottom: 16px;
+}
+
+.environment-header {
+  background-color: #f8f9fa;
+  padding: 8px 12px;
+  font-weight: bold;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.application-group {
+  margin-left: 16px;
+}
+
+.application-header {
+  background-color: #e9ecef;
+  padding: 6px 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.script-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.script-info strong {
+  display: block;
+}
+
+.script-filename {
+  font-size: 12px;
+  color: #666;
+}
+
+.delete-script-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.no-scripts {
+  color: #666;
+  font-style: italic;
+}
+
+/* New script form */
+.new-script-form {
+  margin-bottom: 16px;
+}
+
+.new-script-form h4 {
+  margin-bottom: 12px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+/* Modal buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Test case container */
+.test-case {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+  background-color: #fafafa;
+}
+
+.test-case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.test-case-header h4 {
+  margin: 0;
+  color: #555;
+}
+
+.test-case-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.run-test-btn {
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.run-test-btn:enabled {
+  background-color: #007bff;
+}
+
+.run-test-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.remove-test-btn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.script-ready {
+  font-size: 12px;
+  color: #28a745;
+  margin-top: 4px;
+}
+
+/* File upload section */
+.file-upload {
+  margin-bottom: 16px;
+}
+
+.file-upload label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.file-upload input {
+  margin-bottom: 8px;
+}
+
+.file-info {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Script editor */
+.script-editor {
+  margin-bottom: 16px;
+}
+
+.script-editor h4 {
+  margin-bottom: 8px;
+}
+
+.script-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.script-priority-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Load configuration */
+.load-config {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom: 16px;
+}
+
+.load-config h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.load-config-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.load-phase h5 {
+  margin: 0 0 8px 0;
+  color: #666;
+}
+
+.load-input-group {
+  margin-bottom: 8px;
+}
+
+.load-input-group label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.load-input {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+/* Running indicator */
+.running-indicator {
+  padding: 12px;
+  background-color: #e7f3ff;
+  border: 1px solid #b3d7ff;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.running-indicator-content {
+  display: flex;
+  align-items: center;
+}
+
+.running-indicator span:first-child {
+  margin-right: 8px;
+}
+
+/* Metrics tables */
+.metrics-section {
+  margin-bottom: 16px;
+}
+
+.metrics-section h4 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.metrics-table-container {
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.metrics-table thead tr {
+  background-color: #f8f9fa;
+}
+
+.metrics-table th {
+  border: 1px solid #dee2e6;
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: bold;
+  color: #495057;
+}
+
+.metrics-table th.center {
+  text-align: center;
+}
+
+.metrics-table td {
+  border: 1px solid #dee2e6;
+  padding: 12px 8px;
+  font-size: 14px;
+}
+
+.metrics-table td.center {
+  text-align: center;
+}
+
+.metrics-table td.bold {
+  font-weight: bold;
+}
+
+.metrics-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.url-label {
+  word-break: break-all;
+}
+
+.duration-good {
+  color: #28a745;
+}
+
+.duration-bad {
+  color: #dc3545;
+}
+
+.errors-good {
+  color: #28a745;
+}
+
+.errors-bad {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Overall metrics table */
+.overall-metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.overall-metrics-table thead tr {
+  background-color: #f8f9fa;
+}
+
+.overall-metrics-table th {
+  border: 1px solid #dee2e6;
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #495057;
+}
+
+.overall-metrics-table td {
+  border: 1px solid #dee2e6;
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Console output */
+.console-output {
+  margin-bottom: 16px;
+}
+
+.console-output h4 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.console-pre {
+  background-color: #f8f9fa;
+  padding: 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+  overflow: auto;
+  max-height: 300px;
+}
+
+/* Add test case button */
+.add-test-case {
+  margin-bottom: 16px;
+}
+
+.add-test-case-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Toast notifications */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.toast.success {
+  background-color: #28a745;
+}
+
+.toast.warning {
+  background-color: #ffc107;
+}
+
+.toast.error {
+  background-color: #dc3545;
+}
