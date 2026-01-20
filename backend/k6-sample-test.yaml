@@ -2,9 +2,10 @@ apiVersion: k6.io/v1alpha1
 kind: TestRun
 metadata:
   name: k6-sample-test
+  namespace: k6
 spec:
   parallelism: 1
   script:
     configMap:
-      name: k6-script
+      name: k6-test-script
       file: test.js

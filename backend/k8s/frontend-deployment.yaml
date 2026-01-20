@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k6-frontend
+  namespace: k6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k6-frontend
+  template:
+    metadata:
+      labels:
+        app: k6-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: <FRONTEND_IMAGE>
+          ports:
+            - containerPort: 80

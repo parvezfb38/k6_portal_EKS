@@ -1,13 +1,16 @@
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
-const multer = require('multer');
-const { exec } = require('child_process');
-const bodyParser = require('body-parser');
+import express from 'express';
+import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
+import multer from 'multer';
+import { exec } from 'child_process';
+import bodyParser from 'body-parser';
+import * as k8s from '@kubernetes/client-node';
+import { fileURLToPath } from 'url';
+import { buildTestRun } from './k8s/createTestRun.js';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const { buildTestRun } = require('./k8s/createTestRun');
-const k8s = require('@kubernetes/client-node');
 // 🔹 Kubernetes client setup (EKS / AKS / local)
 const kc = new k8s.KubeConfig();
 

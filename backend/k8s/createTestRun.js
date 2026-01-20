@@ -1,4 +1,4 @@
-function buildTestRun({ name, scriptConfigMap }) {
+export function buildTestRun({ name, scriptConfigMap }) {
   return {
     apiVersion: 'k6.io/v1alpha1',
     kind: 'TestRun',
@@ -16,5 +16,3 @@ function buildTestRun({ name, scriptConfigMap }) {
     }
   };
 }
-
-module.exports = { buildTestRun };

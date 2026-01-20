@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k6-backend
+  namespace: k6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k6-backend
+  template:
+    metadata:
+      labels:
+        app: k6-backend
+    spec:
+      serviceAccountName: k6-sa   # 🔐 IRSA binding
+      containers:
+        - name: k6-backend
+          image: 196390795662.dkr.ecr.us-east-1.amazonaws.com/k6-ecr:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5001
+          env:
+           - name: NODE_ENV
+             value: "production"
+           - name: EXECUTION_MODE
+             value: "cluster"
+

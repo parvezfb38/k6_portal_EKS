@@ -1,23 +1,18 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@kubernetes/client-node": "^1.4.0",
     "body-parser": "^2.2.0",
-    "child_process": "^1.0.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "fs": "^0.0.1-security",
     "multer": "^2.0.1",
     "tmp": "^0.2.3",
     "yaml": "^2.8.2"
-  },
-  "description": ""
+  }
 }
