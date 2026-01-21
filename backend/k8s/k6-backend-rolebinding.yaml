@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: k6-backend-rolebinding
+subjects:
+- kind: ServiceAccount
+  name: k6-sa
+  namespace: k6
+roleRef:
+  kind: ClusterRole
+  name: k6-backend-role
+  apiGroup: rbac.authorization.k8s.io

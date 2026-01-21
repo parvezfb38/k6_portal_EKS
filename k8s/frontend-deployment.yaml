@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k6-frontend
+  namespace: k6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k6-frontend
+  template:
+    metadata:
+      labels:
+        app: k6-frontend
+    spec:
+      containers:
+        - name: k6-frontend
+          image: 196390795662.dkr.ecr.us-east-1.amazonaws.com/k6-frontend:latest
+          ports:
+            - containerPort: 80

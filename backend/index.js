@@ -32,6 +32,7 @@ const EXECUTION_MODE = process.env.EXECUTION_MODE || 'local';
 
 console.log(">>> EXECUTION_MODE =", EXECUTION_MODE);
 
+console.log("INDEX.JS LOADED");
 
 
 // Create scripts directory structure if it doesn't exist
@@ -331,7 +332,7 @@ if (EXECUTION_MODE === 'local') {
 
     // 1️⃣ Create ConfigMap (FIXED)
     await coreV1Api.createNamespacedConfigMap({
-      namespace: 'default',
+      namespace: 'k6',
       body: {
         metadata: {
           name: configMapName
@@ -351,7 +352,7 @@ if (EXECUTION_MODE === 'local') {
     await k8sApi.createNamespacedCustomObject({
     group: 'k6.io',
     version: 'v1alpha1',
-    namespace: 'default',
+    namespace: 'k6',
     plural: 'testruns',
     body: body,
 });
