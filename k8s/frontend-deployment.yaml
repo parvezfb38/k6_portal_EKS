@@ -14,7 +14,11 @@ spec:
         app: k6-frontend
     spec:
       containers:
-        - name: k6-frontend
-          image: 196390795662.dkr.ecr.us-east-1.amazonaws.com/k6-frontend:latest
-          ports:
-            - containerPort: 80
+      - name: k6-frontend
+        image: 196390795662.dkr.ecr.us-east-1.amazonaws.com/k6-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: REACT_APP_API_URL
+          value: "http://k6-backend:5001"

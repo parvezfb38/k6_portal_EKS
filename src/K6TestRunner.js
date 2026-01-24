@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DropDowns from './DropDowns';
 import './K6TestRunner.css';
+const API_BASE = "/api";
 
 const K6TestRunner = React.memo(() => {
   const [testCases, setTestCases] = useState([
@@ -41,7 +42,8 @@ const K6TestRunner = React.memo(() => {
 
   const loadConfiguration = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/config');
+      const response = await axios.get(`${API_BASE}/config`);
+
       setEnvironments(response.data.environments);
       setApplications(response.data.applications);
       
@@ -55,7 +57,8 @@ const K6TestRunner = React.memo(() => {
 
   const loadScripts = async (environment = '', application = '') => {
     try {
-      let url = 'http://localhost:5001/api/scripts';
+      let url = `${API_BASE}/scripts`;
+
       const params = new URLSearchParams();
       
       if (environment) params.append('environment', environment);
@@ -144,7 +147,8 @@ const K6TestRunner = React.memo(() => {
 
     try {
       const response = await axios.get(
-        `http://localhost:5001/api/scripts/${testCase.selectedEnvironment}/${testCase.selectedApplication}/${scriptId}`
+        `${API_BASE}/scripts/${testCase.selectedEnvironment}/${testCase.selectedApplication}/${scriptId}`
+
       );
       updateTestCase(testId, { 
         scriptText: response.data.content,
@@ -163,7 +167,7 @@ const K6TestRunner = React.memo(() => {
     }
 
     try {
-      await axios.post('http://localhost:5001/api/scripts', {
+      await axios.post(`${API_BASE}/scripts`, {
         scriptName: newScriptName,
         content: newScriptContent,
         environment: newScriptEnvironment,
@@ -188,7 +192,7 @@ const K6TestRunner = React.memo(() => {
     }
 
     try {
-      await axios.delete(`http://localhost:5001/api/scripts/${script.environment}/${script.application}/${script.id}`);
+      await axios.delete(`${API_BASE}/scripts/${script.environment}/${script.application}/${script.id}`);
       setToast({ type: 'success', message: 'Script deleted successfully' });
       loadScripts(); // Refresh the scripts list
     } catch (error) {
@@ -227,7 +231,7 @@ const K6TestRunner = React.memo(() => {
     formData.append('rampDownDuration', testCase.rampDownDuration);
 
     try {
-      const response = await axios.post('http://localhost:5001/api/run-test', formData, {
+      const response = await axios.post(`${API_BASE}/run-test`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       // ✅ CLUSTER MODE HANDLING
